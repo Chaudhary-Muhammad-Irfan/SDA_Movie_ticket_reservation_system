@@ -1,4 +1,4 @@
-# SDA_Movie_ticket_reservation_system  
+# SDA_Movie_ticket_Reservation_System  
 
 Subject Title : 	Software Architecture and Design  
 Section	:		BSEF21M  
