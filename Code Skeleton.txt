@@ -1,0 +1,190 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <ctime>
+
+using namespace std;
+
+class User {
+private:
+    int user_id;
+    string username;
+    string email;
+    string password;
+    string name; // Optional
+    vector<string> preferences; // Optional
+
+public:
+    void registerUser(string username, string email, string password, string name = "", vector<string> preferences = {});
+    void login(string username, string password);
+    void logout();
+    void updateProfile(string name, vector<string> preferences = {});
+    void changePassword(string old_password, string new_password);
+    void viewDashboard();
+    void searchMovies(string criteria);
+    void rateMovie(int movie_id, int rating);
+    void reviewMovie(int user_id, int movie_id, int rating, string content, string created_at);
+    void purchaseTicket(int movie_id, int showtime_id, int quantity);
+    void viewBookingHistory();
+    void addToWatchlist(int movie_id);
+};
+
+class Movie {
+private:
+    int movie_id;
+    string title;
+    string genre;
+    vector<string> cast;
+    string director; // Optional
+    string release_date;
+    string synopsis;
+    string trailer_url; // Optional
+
+public:
+    // Constructor, getter and setter methods
+};
+
+class ShowTime {
+private:
+    int showtime_id;
+    int movie_id;
+    int theater_id;
+    string date;
+    string time;
+    int available_seats;
+    float price; // Optional
+
+public:
+    // Constructor, getter and setter methods
+};
+
+class Theater {
+private:
+    int theater_id;
+    string name;
+    string location;
+    vector<string> amenities; // Optional
+    int num_screens; // Optional
+
+public:
+    // Constructor, getter and setter methods
+};
+
+class Ticket {
+private:
+    int ticket_id;
+    int user_id;
+    int showtime_id;
+    int seat_number;
+    string purchase_date;
+    string confirmation_code;
+
+public:
+    // Constructor, getter and setter methods
+};
+
+class Admin {
+private:
+    int admin_id;
+    string username;
+    string email;
+    string password;
+
+public:
+    void login(string username, string password);
+    void logout();
+    void manageUsers();
+    void manageMovies(char action, Movie movie); // 'a' for add, 'u' for update, 'r' for remove
+    void manageTheaters(char action, Theater theater); // 'a' for add, 'u' for update, 'r' for remove
+    void manageShowtimes(char action, ShowTime showtime); // 'a' for add, 'u' for update, 'r' for remove
+    void generateReports();
+};
+
+class Payment {
+private:
+    int payment_id;
+    int ticket_id;
+    int order_id; // Optional
+    float amount;
+    string payment_method;
+    string transaction_id;
+
+public:
+    // Constructor, getter and setter methods
+};
+
+class Concession {
+private:
+    int concession_id;
+    string name;
+    string description;
+    float price;
+    string category;
+    string image_url; // Optional
+
+public:
+    // Constructor, getter and setter methods
+};
+
+class Order {
+private:
+    int order_id;
+    int user_id;
+    int ticket_id;
+    int concession_id; // Optional
+    float total_amount;
+    string status;
+
+public:
+    // Constructor, getter and setter methods
+};
+
+class Notification {
+private:
+    int notification_id;
+    int user_id;
+    string message;
+    string type;
+    bool is_read;
+
+public:
+    // Constructor, getter and setter methods
+};
+
+class Review {
+private:
+    int review_id;
+    int user_id;
+    int movie_id;
+    int rating;
+    string content;
+    string created_at;
+
+public:
+    Review(int id, int user, int movie, int rat, string cont, string date) : review_id(id), user_id(user), movie_id(movie), rating(rat), content(cont), created_at(date) {}
+    
+    int getReviewId() const { return review_id; }
+    int getUserId() const { return user_id; }
+    int getMovieId() const { return movie_id; }
+    int getRating() const { return rating; }
+    string getContent() const { return content; }
+    string getCreatedAt() const { return created_at; }
+};
+
+class ContentModeration {
+private:
+    int moderation_id;
+    string content_type;
+    int content_id;
+    int flagged_by;
+    string reason; // Optional
+    string status;
+
+public:
+    // Constructor, getter and setter methods
+};
+
+int main() {
+    // You can create instances of the classes and perform operations here
+    return 0;
+}
